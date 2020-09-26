@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import './styles/core-style.scss';
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.card-icon{
+    height:46px;
+    width: 46px;
+    min-height:46px;
+    min-width: 46px;
+    border-radius: 50%;
+    color:white;
+    z-index: 1;
+}
+
+.subtitle-color{
+    color:#cac3c3;
+}
+.text-white{
+    color:white;
+}
+
+.border-button{
+    border-bottom-left-radius: 24px;
+    border-top-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border-top-right-radius: 24px;
+}

@@ -1,0 +1,13 @@
+<div fxLayout.lt-md='column' fxLayoutAlign.lt-md='center start' fxLayoutGap.lt-md='16px' fxLayout="row" fxLayoutAlign="space-around center" class='mt-48' ngClass.lt-md='ml-48'>
+  <div *ngFor="let card of cards">
+    <div fxLayout="row" fxLayoutAlign="start center" >
+      <div fxLayout="row" fxLayoutAlign="center center" class='mr-12 card-icon' [style.background-color]="card.background">
+        <mat-icon>{{ card.icon }}</mat-icon>
+      </div>
+      <div>
+        <div class='font-size-16 letter-spacing-10'>{{ card.title }}</div>
+        <div class='font-size-12 letter-spacing-10 subtitle-color'>{{ card.subtitle }}</div>
+      </div>
+    </div>
+  </div>
+</div>

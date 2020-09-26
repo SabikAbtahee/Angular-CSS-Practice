@@ -1,0 +1,22 @@
+.tech-back-color{
+    background-color: blue;
+}
+
+:host{
+    .mat-column-POSITION {
+        flex: 0 0 40% !important;
+        width: 40% !important;
+    }
+    .mat-column-NAME {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+    }
+    .mat-column-STATUS {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+    }
+    .mat-column-PRICE {
+        flex: 0 0 20% !important;
+        width: 20% !important;
+    }
+}

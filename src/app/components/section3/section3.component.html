@@ -1,0 +1,109 @@
+<div
+  fxLayout="row"
+  fxLayout.lt-md="column"
+  class="mt-16 mx-16"
+  fxLayoutGap="24px"
+>
+  <div fxFlex="70" class="mat-elevation-z1">
+    <div
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+      class="pl-24 pr-48 py-24"
+    >
+      <div class="font-size-24 mb-8">Projects of the month</div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-label class="font-size-16 mr-8">Month</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let month of months" [value]="month">
+            {{ month }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+    <div>
+      <table mat-table [dataSource]="dataSource" class="w-100-p">
+        <ng-container matColumnDef="POSITION">
+          <th mat-header-cell *matHeaderCellDef class="font-size-16">
+            Assigned
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div fxLayout="row" fxLayoutAlign="start center">
+              <div
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                class="mr-16 h-40 w-40 text-white tech-back-color border-radius-50-p"
+                [style.background-color]="element.COLOR"
+              >
+                {{ element.NAME[0] }}
+              </div>
+              <div fxlayout="column" class="my-12">
+                <div class="mb-8">{{ element.NAME }}</div>
+                <div>{{ element.POSITION }}</div>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="NAME">
+          <th mat-header-cell *matHeaderCellDef class="font-size-16">Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.NAME }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="STATUS">
+          <th mat-header-cell *matHeaderCellDef class="font-size-16">
+            Priority
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <span
+              class="border-button py-4 px-8 text-white"
+              [style.background-color]="element.COLOR"
+              >{{ element.STATUS }}</span
+            >
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="PRICE">
+          <th mat-header-cell *matHeaderCellDef class="font-size-16">Budget</th>
+          <td mat-cell *matCellDef="let element">
+            <span [style.color]="element.COLOR">{{ element.PRICE }}</span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+  <div
+    fxFlex="30"
+    fxLayout="column"
+    fxLayoutAlign="start stretch"
+    class="mat-elevation-z1"
+  >
+    <div>
+      <img class="w-100-p" [src]="imageSource" />
+    </div>
+    <div class="pl-12">
+      <div class="font-size-20 py-12">Business development rules</div>
+
+      <div class="my-16">
+        <span class="border-button py-4 px-8 text-white tech-back-color"
+          >Technology</span
+        >
+      </div>
+
+      <div class="pb-16 subtitle-color">
+        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+        lorem ipsum lorem ipsum lorem ipsum
+      </div>
+
+      <div
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+        class="pb-16 pr-24"
+      >
+        <div class="font-size-16 subtitle-color">Read More</div>
+        <div><mat-icon>share</mat-icon></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div fxLayout.lt-lg='column' fxLayoutAlign.lt-lg='center stretch' fxLayout="row" fxLayoutAlign="start stretch">
+  <div fxFlex="30" class="pl-36 mx-16 mt-16 mat-elevation-z1">
+    <div class="my-20">
+      <div class="font-size-24 mb-8">Today's Schedule</div>
+      <div class="font-size-20 subtitle-color">
+        Check out your daily schedule
+      </div>
+    </div>
+    <ul *ngFor="let card of cards" class='card-content '>
+      <li fxLayout="row" fxLayoutAlign="start start" class="py-24 card-content2 mr-16">
+        <div
+          fxLayout="row"
+          fxLayoutAlign="center center"
+          class="mr-24 card-icon"
+          [style.background-color]="card.background"
+        >
+          <mat-icon>{{ card.icon }}</mat-icon>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start start" >
+          <div class="font-size-16">
+            {{ card.title
+            }}<span class="ml-8 font-size-12">{{ card.time }}</span>
+          </div>
+          <div class="font-size-12">{{ card.subtitle }}</div>
+          <div
+            fxLayout="row"
+            fxLayoutAlign="start start"
+            *ngIf="card.button"
+            class="mt-16"
+          >
+            <button mat-stroked-button class="accept-button mr-16">
+              Approve
+            </button>
+            <button mat-stroked-button class="reject-button">Refuse</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div fxFlex="70" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap='24px' class=" mx-16 mt-16  mat-elevation-z1">
+    <div fxLayout="row" fxLayoutAlign="space-between center" class='pl-24 pr-48 py-16'>
+      <div >
+        <div class="font-size-24 mb-8">Sales Overview</div>
+        <div class="font-size-20 subtitle-color">Check the monthly sales</div>
+      </div>
+      <div  fxLayout="row" fxLayoutAlign="center center">
+        <mat-label class='font-size-16 mr-8'>Month</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let month of months" [value]="month">
+            {{ month }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+    <div fxLayout='row' fxLayoutAlign='space-between center' class='p-24 card2-background'>
+        <div>
+            <div class='font-size-36 mb-24'>March 2017</div>
+            <div class='font-size-28'>Report for this month</div>
+        </div>
+        <div class='font-size-40 text-color'>
+            $3,690
+        </div>
+
+    </div>
+    <div>
+        <table mat-table [dataSource]="dataSource" class=" w-100-p">
+            <ng-container matColumnDef="POSITION">
+              <th mat-header-cell *matHeaderCellDef class='font-size-16'> # </th>
+              <td mat-cell *matCellDef="let element"> {{element.POSITION}} </td>
+            </ng-container>
+            <ng-container matColumnDef="NAME">
+              <th mat-header-cell *matHeaderCellDef class='font-size-16'> NAME </th>
+              <td mat-cell *matCellDef="let element"> {{element.NAME}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="STATUS">
+              <th mat-header-cell *matHeaderCellDef class='font-size-16'> STATUS </th>
+              <td mat-cell *matCellDef="let element"> <span class='border-button py-4 px-8 text-white' [style.background-color]='element.COLOR'>{{element.STATUS}}</span> </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="DATE">
+              <th mat-header-cell *matHeaderCellDef class='font-size-16'> DATE </th>
+              <td mat-cell *matCellDef="let element"> {{element.DATE |date:'longDate'}} </td>
+            </ng-container>
+
+             <ng-container matColumnDef="PRICE">
+                <th mat-header-cell *matHeaderCellDef class='font-size-16'> PRICE </th>
+                <td mat-cell *matCellDef="let element"> <span [style.color]='element.COLOR'>{{element.PRICE}}</span> </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+  </div>
+</div>

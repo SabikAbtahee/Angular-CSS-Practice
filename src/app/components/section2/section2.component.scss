@@ -1,0 +1,81 @@
+
+@import '../../../styles'; 
+
+:host{
+    .mat-column-POSITION {
+        flex: 0 0 10% !important;
+        width: 10% !important;
+    }
+    .mat-column-NAME {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+    }
+    .mat-column-STATUS {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+    }
+    .mat-column-DATE {
+        flex: 0 0 25% !important;
+        width: 25% !important;
+    }
+    .mat-column-PRICE {
+        flex: 0 0 15% !important;
+        width: 15% !important;
+    }
+}
+
+.accept-button{
+    @extend .border-button;
+    color:green;
+    border-color: green;
+
+}
+
+.reject-button{
+    @extend .border-button;
+    color:red;
+    border-color: red;
+}
+
+
+
+.border-card{
+    border-bottom: 0.5px solid #e6dcdc;
+}
+.card1-background{
+    background:#f7f7f7
+}
+.card2-background{
+    background:#e6e4e4
+}
+
+.text-color{
+    color:blue;
+}
+
+
+.card-content{
+    position: relative;
+}
+.card-content::before{
+    content: '';
+    position: absolute;
+    height:1px;
+    width: 70%;
+    top: 100%;
+    left: 64px;
+    background-color: #c7b8b8;
+}
+.card-content2{
+    position: relative;
+}
+.card-content2::before{
+    content: '';
+    position: absolute;
+    height: 140px;
+    width: 1px;
+    left: 22px;
+    top: 0;
+    background-color: #c7b8b8;
+}
+
